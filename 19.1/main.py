@@ -10,7 +10,7 @@ class MyServer(BaseHTTPRequestHandler):
         обработку входящих запросов от клиентов
     """
 
-    def do_post(self):
+    def do_POST(self):
         """ Метод для обработки входящих POST-запросов """
         c_len = int(self.headers.get('Content-Length'))
         client_data = self.rfile.read(c_len)
@@ -21,7 +21,7 @@ class MyServer(BaseHTTPRequestHandler):
         self.end_headers()
         self.wfile.write(bytes("Запрос обработан", "utf-8"))
 
-    def do_get(self):
+    def do_GET(self):
         """ Метод для обработки входящих GET-запросов """
         text = 'Hello, World wide web!'
         self.send_response(200)
